@@ -1,0 +1,266 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+  overflow-x: hidden; 
+}
+:root {
+    --clr-white: #fff;
+    --clr-font-principal: #4f555a;
+    --clr-color-fontdados: #021b3a;
+    --clr-backgroud-general: #f2f6f7;
+    --clr-gray: #3a3f44;
+    --clr-gray-opaco: #7f8c8d;
+    --clr-gray-clear: #bdc3c7;
+    --clr-gray-border: #ccc;
+    --clr-red: #c98b8b;
+    --clr-red-02: #d6293e;
+    --clr-green: #58af9b;
+    --clr-purple: rgb(145, 150, 212);
+    --clr-yellow: #ebbe5d;
+    --clr-yellow-opaco: rgb(231, 226, 207);
+    --clr-blue: #1e63b3;
+    --clr-blue2: #7db6f8;
+  }
+  #identidade{
+    display: none;
+  }
+  .novasolicitacao{
+    height: 44px;
+    width: 140px;
+  }
+  .bxs-user-pin{
+    font-size: 32px;
+  }
+
+ .bloco_02Div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0px;
+} 
+.blc_02Div{
+  display: flex;
+  justify-content: space-around;
+  /* background: #cfd1d1; */
+  /* background: var(--clr-blue); */
+  border: 1px solid var(--clr-gray-border);
+  border-radius: 8px;
+  padding: 30px;
+  width: 70%;
+  margin: 20px 0px;
+}
+.blc_02Div input[readonly]{
+  background:#e6ecf7;
+}
+@media(max-width:1150px){
+    #nomeId, #rSocial, #inputCNPJ{
+      width: 16vh;
+    }
+    #cidadeId, #enderecoId, #bairroId{
+      width: 14vh;
+    }
+}
+@media(max-width:1360px){
+    #nomeId, #rSocial, #inputCNPJ{
+      width: 22vh;
+    }
+    #cidadeId, #enderecoId, #bairroId{
+      width: 20vh;
+    }
+}
+
+.bloco_div{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.detalheDiv{
+  position: relative;
+  display: inline;
+  top: -3rem;
+  background: white;
+  text-align: center;
+}
+.bloco_div2{
+  display: flex;
+  flex-direction: column;
+  /* margin-top: -4px; */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.inputTamanho{
+  width: 280px;
+}
+.inputTamanho2{
+  width: 200px;
+}
+.inputTamanhoCode{
+  width:100px;
+}
+.inputTamanhoCNPJ{
+  width: 180px;
+}
+.blocosReq{
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  padding: 10px;
+}
+.txtTitulo{
+  width: 210px;
+  position: relative;
+  top: -3.5rem;
+  background: white;
+  text-align: center;
+}
+.bloco_01Div{
+  display: flex;
+  align-items: center;
+}
+.bloco_div{
+  display: flex;
+}
+.colunaDiv{
+  display: flex;
+  flex-direction: column;
+}
+.resposta{
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  /* background:var(--clr-blue); */
+  border-radius: 6px;
+  border: 1px solid var(--clr-gray-border);
+}
+.gpEspecifico{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.divFaturamento,.divVencimento,.divAssistencia ,.sistema, .divSuporte, .divNumSerie, .divQuanthrs, .divValid, .divLink, .inputCNPJ{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+/* falta deixar o Cadastro Cliente responsivo */
+
+
+.filtros{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: #d2d2d4 1px solid;
+  padding-bottom: 30px;
+  box-shadow: 0px 8px 6px -6px #d2d2d4;
+}
+.novaDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 15px;
+}
+.novaDiv h3{
+  margin: 20px 0px;
+}
+/* Div Cliente Cadastro */
+.grupoCad{
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid #d2d2d4;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: transform 0.1s ease;
+  width: 95%;
+  /* overflow-x: hidden; */
+}
+ .grupoCad:hover{
+  background: var(--clr-blue);
+  box-shadow: 5px 5px 10px #a8a8a8;
+  transform: scale(1.02);
+  color: var(--clr-white);
+  transition: 0.8;
+} 
+.grupoCad p{
+  font-size: 12px;
+}
+
+.grupoCad1{
+  display: flex;
+  flex-direction: column;
+  border-bottom: #f0efef 1px solid;
+  padding: 10px;
+  gap: 10px;
+}
+.Cnpj{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detalheGrupoCad1{
+  display: flex;
+  justify-content: space-between;
+}
+.Nome, .RSocial{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.grupoCad2{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  /* border-bottom: #f0efef 1px solid; */
+}
+.Cnpj{
+  display: flex;
+  flex-direction: column;
+}
+.corpoCadastro{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.campoReqDados{
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+.btnCampoReqDados{
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: white;
+  background: #1e63b3;
+  cursor: pointer;
+}
+.btnCampoReqDados:hover{
+  background:#164e8f;
+}
+.divDataVencimento{
+  width: 80px;
+}
+.spanImport{
+  color: red;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.form{
+  width: 60%;
+}

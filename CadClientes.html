@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../JS/jquery.js"></script>
+    <link rel="stylesheet" href="../CSS/CadClientes.css">
+    <link rel="stylesheet" href="../CSS/tabela.css">
+    <link rel="stylesheet" href="../CSS/mensagens.css">
+    <link rel="stylesheet" href="../CSS/EstilosGerais.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/CadClientes.css">
+    <title>AS-HelpDesk - CadClientes</title>
+</head>
+
+<body>
+    <!-- Loader da pagina -->
+    <!-- <div class="loader">
+        <div class="loader-icon">
+            <i class='bx bxs-hourglass bx-burst bx-rotate-90' ></i>
+        </div>
+    </div> -->
+
+    <div class="containermsg">
+        <!-- Confirme  -->
+        <div class="containermsg_content confirme">
+            <div class="containermsg_content_header">
+                <ion-icon name="help-outline"></ion-icon><h3 id="titulo_msg">Tem certeza?</h3>
+            </div>
+            <div class="containermsg_content_body">
+                <p id="msg_confirme"></p>
+            </div>
+            <div class="containermsg_content_bnt">
+                <input type="button" id="okconfirme" value="Ok" class="ok">
+                <input type="button" id="cancelar" value="cancelar">
+            </div>
+        </div>
+
+        <!-- Sucesso -->
+        <div class="containermsg_content sucesso">
+            <div class="containermsg_content_header">
+                <ion-icon name="checkmark-done-outline"></ion-icon><h3 id="titulo_msg">Tudo Certo!</h3>
+            </div>
+            <div class="containermsg_content_body">
+                <p id="msg_sucesso"></p>
+            </div>
+            <div class="containermsg_content_bnt">
+                <input type="button" id="oksucesso" value="Ok">
+            </div>
+        </div>
+
+        <!-- Alerta -->
+        <div class="containermsg_content alerta">
+            <div class="containermsg_content_header">
+                <ion-icon name="warning-outline"></ion-icon></ion-icon><h3 id="titulo_msg">Atenção!!</h3>
+            </div>
+            <div class="containermsg_content_body">
+                <p id="msg_alerta"></p>
+            </div>
+            <div class="containermsg_content_bnt">
+                <input type="button" value="Entendi" id="okalerta">
+            </div>
+        </div>
+
+        <!-- Erro  -->
+        <div class="containermsg_content erro">
+            <div class="containermsg_content_header">
+                <ion-icon name="alert-outline"></ion-icon><h3 id="titulo_msg">Ops!! Algo Deu Errado</h3>
+            </div>
+            <div class="containermsg_content_body">
+                <p id="msg_erro"></p>
+            </div>
+            <div class="containermsg_content_bnt">
+                <input type="button" value="Ok" id="ok">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabecalho -->
+    <div class="div_cabecalho">
+        <div class="rota">
+            <span>AS - HelpDesk</span><i class='bx bx-chevron-right'></i><span>Cadastro de Clientes</span>
+        </div>
+
+        <div class="div_h2">
+            <i id="icon" class='bx bx-slider' ></i>
+            <h2>Cadastro de Clientes</h2>
+        </div>
+    </div>
+
+    <!-- Filtros  -->
+    <div class="filtros">
+        <input type="text" id="filtroCliente" placeholder="CNPJ">
+        <input type="text" id="filtroSolicitante" placeholder="Nome">
+        <a id="LimparFiltros">Limpar<i class='bx bx-filter'></i></a>
+        <button class="btn novasolicitacao"><label for=""><i class='bx bx-plus-medical'></i></label>Nova Solicitação</button>
+    </div>
+
+    <!-- <div class="cadSolicitacaoDiv">
+        <div class="cadSolicitacao">
+            <div>
+                <div class="top">
+                    <i class='bx bxs-user-pin' style='color:#3a3f44'  ></i>
+                    <h4>Cadastrar Cliente</h4>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="content">
+        <div class="novaDiv">
+           <h3>Clientes Cadastrados</h3>
+
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divform">
+        <div class="form ">
+            <div class="modal_loader">
+                <i class='bx bxs-user-pin' style='color:#3a3f44'></i>
+            </div>
+
+            <form method="POST" id="form">
+                <div class="div_cabecalho cabecalhomodal">
+                    <div class="div_h2">
+                        <i class='bx bxs-user-pin' style='color:#3a3f44'></i>
+                        <h2 id="h2_form">Cadastro do Cliente</h2>
+                    </div>
+                </div>
+                  
+                <div class="corpoCadastro">
+
+                    <div class="blocosReq">
+
+                        <div class="bloco_01Div">
+ 
+                            <div class="divId">
+                                <label for="inputCode">Código</label>
+                                <input class="inputTamanhoCode" name="inputCode" id="inputCode" type="text">
+                            </div>
+
+                            <div class="divCnpj">
+                                <label for="inputCNPJ">CNPJ</label>
+                                <input class="inputTamanhoCNPJ" name="inputCNPJ" id="inputCNPJ" type="text">
+                            </div>
+
+                            <div class="campoReqDados">
+                                <button class="btnCampoReqDados" id="btnCampoReqDados"><span>Importar Dados</span><box-icon name='plus-square' type='solid' color='#ffffff' ></box-icon></button>
+                                <span class="spanImport">Digite o CNPJ ou o Código para Importar</span>
+                            </div>
+                        </div>   
+    
+                        <div class="bloco_02Div">
+                            <div class="blc_02Div">
+
+                                <div class="bloco_div">
+
+                                        <h3 class="detalheDiv">Dados Importados</h3>
+
+                                        <div>
+                                            <label for="nomeId">Nome</label><hr>
+                                            <input type="text" id="nomeId" name="nomeId" class="inputTamanho colunaDiv" readonly>
+                                        </div>
+
+                                        <div class="divNomeFantasia">
+                                            <label for="rSocial">Fantasia</label>
+                                            <input class="inputTamanho colunaDiv" name="rSocial" id="rSocial" type="text" readonly>
+                                        </div>
+
+                                        <div>
+                                            <label for="">Código</label>
+                                            <input type="text" class="inputTamanho colunaDiv" id="inputCNPJ" name="inputCNPJ" readonly>
+                                        </div>
+            
+                                </div>
+
+                                <div class="bloco_div2">
+
+                                        <div class="colunaDiv">
+                                            <label for="cidadeId">Cidade</label>
+                                            <input type="text" id="cidadeId" class="inputTamanho2" readonly>
+                                        </div>
+
+                                        <div class="colunaDiv">
+                                            <label for="enderecoId">Endereço</label>
+                                            <input type="text" id="enderecoId" name="enderecoId" class="inputTamanho2" readonly>
+                                        </div>
+
+                                        <div class="colunaDiv">
+                                            <label for="bairroId">Bairro</label>
+                                            <input type="text" id="bairroId" name="bairroId" class="inputTamanho2" readonly>
+                                        </div>
+
+                                    <div>
+                                        <input type="text" id="identidade"  class="inputTamanho" readonly>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+    
+                    </div>
+                    
+                    <div>
+                           
+                        <div class="bloco_resposta">
+                             
+                           <div class="resposta"> 
+                            <h3 class="txtTitulo">Adicione os Dados</h3>  
+                            <div class="gpEspecifico">
+                                <div class="divFaturamento">
+                                    <label for="inicioFaturamento">Início do Faturamento</label>
+                                    <input type="date"  name="inicioFaturamento" id="inicioFaturamento">
+                                </div>
+        
+                                <div class="divVencimento">
+                                    <label for="divDataVencimento">Data de Vencimento</label>
+                                    <select name="dataVencimento" id="divDataVencimento" name="divDataVencimento" class="divDataVencimento">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                    </select>
+                                </div>
+                            
+                                <div class="divAssistencia">
+                                    <div class="divPremium">
+                                        <label for="naoAssisPrem">Assistência Premium?</label>
+                                    </div>
+                                    <div class="divAssisCheck">
+                                        <input type="radio" value="Não" name="divAssisCheck" id="naoAssisPrem"> Não
+                                        <input type="radio" value="Sim" name="divAssisCheck" id="simAssisPrem"> Sim
+                                    </div>
+                                </div>
+    
+                            </div>
+                           
+                            <div class="gpEspecifico">
+                                <div id="sistema" class="sistema">
+                                    <label for="">Sistema</label>
+                                    <select name="" id="">
+                                        <option value="">REAL MADRID</option>
+                                        <option value="">BARCELONA</option>
+                                        <option value="">BAYERN</option>
+                                    </select>
+                                </div>
+    
+                                <div class="divSuporte">
+                                    <label for="suporte">Suporte</p>
+                                    <select name="suporte" id="suporte">
+                                        <option value="">FLAMENGO</option>
+                                        <option value="">FLUMINENSE</option>
+                                        <option value="">VASCO</option> 
+                                    </select>
+                                </div>
+    
+                                <div class="divNumSerie">
+                                    <label for="numSerie">Número de Série</label>
+                                    <input type="text" name="numSerie" id="numSerie">
+                                </div>
+    
+                            </div>
+                           
+                            <div class="gpEspecifico">
+                                <div class="divQuanthrs">
+                                    <label for="quantHrs">Horas de Treinamento</label>
+                                    <input type="number" name="quantHrs">
+                                </div>
+    
+                                <div class="divValid">
+                                    <label for="validContrato">Validade do Contrato</label>
+                                    <input type="text" name="validContrato" id="validContrato">
+                                </div>
+    
+                                <div class="divLink">
+                                    <label for="certificado">Link do Certificado</label>
+                                    <input type="text" id="certificado">
+                                </div>
+                            </div>
+
+                           </div> 
+                           
+                        </div>
+
+                    </div>
+                       
+                </div>
+                   
+
+                <div class="corpo">
+  
+
+
+                    <div class="rodape">
+                        <a href="" class="a_btn cancelar" id="cancelarCad"><i class='bx bx-check-double'></i></i>Fechar</a>
+                        <a href="" class="a_btn novo" id="enviardados"><i class='bx bx-check-double'></i>Salvar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!-- Links de Scripts JS-->
+    <script src="../JS/myfunctions.js"></script>
+    <script src="../JS/CadClientes.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>
